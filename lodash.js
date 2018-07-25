@@ -14,10 +14,16 @@
 //  Map lets us take an array of objects, and a string referencing a common property,
 //  and create an array that consists of that property from each object.
 
-// const myObjectArray [{name:'bob',age:13,height:'6ft'},{name:'bobs',age:17,height:'6ft'},
-//    {name:'bobett',age:14,height:'6ft'},{name:'bobbin',age:18,height:'6ft'},
-//    {name:'bobbers',age:15,height:'6ft'},{name:'bob the 2nd',age:19,height:'6ft'},
-//    {name:'bobby',age:16,height:'6ft'},{name:'bob the 3rd',age:3,height:'6ft'}]
+// const myObjectArray [
+//   {name:'bob',age:13,height:'6ft'},
+//   {name:'bobs',age:17,height:'6ft'},
+//    {name:'bobett',age:14,height:'6ft'},
+//    {name:'bobbin',age:18,height:'6ft'},
+//    {name:'bobbers',age:15,height:'6ft'},
+//    {name:'bob the 2nd',age:19,height:'6ft'},
+//    {name:'bobby',age:16,height:'6ft'},
+//    {name:'bob the 3rd',age:3,height:'6ft'} 
+//   ]
 
 // const pluckedArray = _.map(myObjectArray, 'name');
 // pluckedArray will contain.
@@ -42,7 +48,7 @@ const myEmployees = [
     company: "DATAGEN",
     email: "pearsonallen@datagen.com",
     phone: "+1 (861) 401-3732",
-    address: "987 Bushwick Court, Bourg, Rhode Island, 2325",
+    address: "987 Bushwick Court, Bourg, Rhode Island, 02325",
     about:
       "Lorem consectetur Lorem amet aliquip enim exercitation velit labore. Tempor nostrud elit reprehenderit laborum do exercitation nisi excepteur et. Sint ex pariatur do magna eiusmod aute incididunt. Deserunt aute consequat do consequat incididunt cillum exercitation irure incididunt ullamco sint eu eu. Duis excepteur ex deserunt in eu consectetur. Nostrud qui excepteur eiusmod cupidatat culpa ea duis cillum.\r\n",
     registered: "2016-08-02T07:52:00 +06:00",
@@ -80,7 +86,7 @@ const myEmployees = [
     company: "OVIUM",
     email: "hattiekoch@ovium.com",
     phone: "+1 (878) 476-2873",
-    address: "666 Corbin Place, Independence, Arizona, 2174",
+    address: "666 Corbin Place, Independence, Arizona, 72174",
     about:
       "In quis cupidatat est id cillum ex amet irure nisi pariatur anim fugiat elit incididunt. Reprehenderit duis ipsum cupidatat ad dolore dolor aute pariatur in commodo est adipisicing aliquip enim. Dolore ea ullamco aliquip aliquip dolore. Ea sunt aliquip Lorem nulla do ex occaecat id enim. Cupidatat adipisicing anim sit incididunt aute reprehenderit.\r\n",
     registered: "2014-02-08T01:35:19 +07:00",
@@ -126,7 +132,7 @@ const myEmployees = [
     company: "JASPER",
     email: "coffeydillard@jasper.com",
     phone: "+1 (862) 568-3324",
-    address: "354 Brighton Avenue, Goodville, New Hampshire, 5187",
+    address: "354 Brighton Avenue, Goodville, New Hampshire, 05187",
     about:
       "Sint sunt nostrud minim est esse ex magna irure laborum. Irure deserunt occaecat ut nulla nostrud dolor aliquip ipsum voluptate ea consectetur ea exercitation. In est consectetur do aliquip est reprehenderit adipisicing non.\r\n",
     registered: "2015-10-08T07:03:04 +06:00",
@@ -172,7 +178,7 @@ const myEmployees = [
     company: "INJOY",
     email: "pearlsteele@injoy.com",
     phone: "+1 (816) 508-2561",
-    address: "588 Nova Court, Westboro, New York, 6968",
+    address: "588 Nova Court, Westboro, New York, 26968",
     about:
       "Est labore non nisi cillum anim fugiat minim. Magna exercitation dolor consequat dolor commodo esse exercitation magna proident ipsum. Culpa culpa excepteur eiusmod dolor.\r\n",
     registered: "2016-09-09T11:02:59 +06:00",
@@ -282,11 +288,11 @@ const myEmployees = [
   }
 ];
 
-const myEmployeesAddresses = 0; // use map to get addresses here.
+const myEmployeesAddresses = _.map(myEmployees, 'address');; // use map to get addresses here.
 
 // Now we want to use map to get an array of ages of the employees.
 
-const myEmployeesAges = 0; // use map to get ages here.
+const myEmployeesAges = _.map(myEmployees, 'age'); // use map to get ages here.
 
 // union
 //  Union lets us take 2 arrays, and create a new array that only has 1 entry for
@@ -326,7 +332,7 @@ const breeFriendsEmails = [
   "dave@gmail.com"
 ];
 
-const listToSendEmailsTo = 0; // Put lodash here to make list of the union of the two address.
+const listToSendEmailsTo = _.union(bobFriendsEmails, breeFriendsEmails); // Put lodash here to make list of the union of the two address.
 
 // intersection
 //  Intersection lets us take two arrays, and create a new array that only
@@ -339,7 +345,7 @@ const listToSendEmailsTo = 0; // Put lodash here to make list of the union of th
 // Bob and Bree have decided that instead of inviting everyone they know to their
 // party. They are instead only going to invite those people that they both know.
 
-const listOfSharedEmails = 0; // Use lodash to create the list that are in both lists
+const listOfSharedEmails = _.intersection(bobFriendsEmails,breeFriendsEmails); // Use lodash to create the list that are in both lists
 
 // groupBy
 //  Group By lets us take an array of objects, and group then into groups based
@@ -403,7 +409,7 @@ const purchases = [
   { month: "February", price: 23.65 }
 ];
 
-const purchasesByMonth = 0; // Use groupBy to group the purchases by the month that they were made.
+const purchasesByMonth =  _.groupBy(purchases, 'month'); // Use groupBy to group the purchases by the month that they were made.
 
 // Bonus Points
 const totalByMonth = 0; // Use the grouped purchasesByMonth and reduce to create a totalByMonth object.
